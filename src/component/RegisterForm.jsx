@@ -34,7 +34,6 @@ function LoginForm(props) {
                     withCredentials: true,
                 },
             );
-            console.log(data);
             if(data.error) {
                 // if data contain error then toast error
                 console.log("error");

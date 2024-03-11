@@ -8,7 +8,7 @@ import Header from "../component/Header";
 
 function Home() {
     const navigate = useNavigate();
-    const [cookie, setCookie, removeCookie] = useCookies([]);
+    const [cookie, setCookie, removeCookie] = useCookies(['cookie-name']);
     const [user,setUser] = useState("");
 
     useEffect(()=>{
