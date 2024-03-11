@@ -1,9 +1,9 @@
 .login-page-form{
     display: block;
     max-width: 720px;
-    height: 70vh;
+    height: 40vh;
     margin: auto;
-    margin-top: 15vh;
+    margin-top: 30vh;
 }
 
 
@@ -12,10 +12,12 @@
 
 .login-form input{
     display: inline-block;
-    height: 35px;
+    height: 40px;
     width: 100%;
+    margin-bottom: 5px;
     border: 0px;
     border-bottom: 0.5px solid grey;
+    font-size: 0.9rem;
 }
 
 .login-form button{
@@ -26,9 +28,16 @@
     width: 80%;
     margin: auto;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     border-radius: 10px;
 }
+
+.login-form button:hover{
+    background-color: #2980b9;
+}
+
+
 
 .input-grid{
     display: grid;
