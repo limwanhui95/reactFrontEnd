@@ -4,12 +4,17 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Header from "../component/Header";
-
+import NoteForm from "../component/NoteForm";
+import Note from "../component/Note";
+import NoteList from "../component/NoteList";
 
 function Home() {
     const navigate = useNavigate();
     const [cookie, setCookie, removeCookie] = useCookies(['cookie-name']);
-    const [user,setUser] = useState("");
+    const [user,setUser] = useState({
+        id: "",
+        username: "",
+    });
 
     useEffect(()=>{
         const verifyUser = async () =>{
@@ -24,6 +29,7 @@ function Home() {
                     {},
                     { withCredentials: true },
                 );
+
                 if(!data.loginStatus) {
                     // login status is false
                     console.log("login status false");
@@ -31,7 +37,11 @@ function Home() {
                     navigate("/login");
                 } else {
                     // when login status is true;
-                    setUser(data.user);
+                    setUser({
+                        id: data.id,
+                        user: data.user,
+                    });
+                    console.log("login");
                 }
             }
         };
@@ -43,10 +53,12 @@ function Home() {
         navigate("/login");
     }
 
+
     return (
         <div>
-            <Header user={user} logOut={logOut}/>
-            <h1>Home</h1>
+            <Header user={user.user} logOut={logOut}/>
+            <NoteForm userId={user.id}/>
+            <NoteList userId={user.id}/>
             <ToastContainer />
         </div>
     )
